@@ -1,0 +1,295 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<script>
+function samman(hello){
+  
+  document.getElementsByClassName('ddd').style.display = 'none' 
+  alert(hello)
+
+}
+</script>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto " href="{%url 'home'%}">Home</a></li>
+            <li><a class="nav-link scrollto active" href="/">Services</a></li>
+            <li><a class="getstarted scrollto" href="#">Subscribe</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->
+
+  
+
+  <main id="main">
+    
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+  
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>JOBS</h2>
+            <ol>
+              <li><a href="/">Home/Services</a></li>
+              <li>JOBS</li>
+            </ol>
+          </div>
+
+          <br/>
+          <p>Job Aggregation helps to consolidate many websites into one page that can show old, new and updated Jobs from many sites at one place.</p>
+
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+      <section id="why-us" class="why-us">
+        <div class="container" style="margin: auto; padding: auto;">
+  
+          <div class="">
+            <div class="d-flex align-items-stretch" data-aos="fade-right">
+              <div class="content" >
+      <br/>
+      <div class="text-center" >
+        <a href="/jobs"  style=" border: 0ch;" class="more-btn" > <i class="bx bx-chevron-left" ></i> </a>
+        
+        <form method="get" style="display: inline; padding: 10px;">
+          <input class="" name='web' value='jobz.pk' style="display: none;">
+          <button type="submit"  style=" border: 0ch;" class="more-btn" > jobz.pk <i class="bx bx-chevron-right" ></i></button>
+        </form>
+          <form method="get" style="display: inline; padding: 10px;">
+          <input class="" name='web' value='jobsalert' style="display: none;">
+          <button type="submit"  style=" border: 0ch;" class="more-btn" inactive> jobsalert.pk <i class="bx bx-chevron-right" ></i></button>
+        </form>
+        
+        <form method="get" style="display: inline; padding: 10px; ">
+          <input class="" name='web' value='jobs.com.pk' style="display: none;">
+          <button type="submit"  style=" border: 0ch;" class="more-btn" inactive> jobs.com.pk <i class="bx bx-chevron-right" ></i></button>
+        </form>
+      
+        <form method="get" style="display: inline; padding: 10px;">
+          <input class="" name='web' value='pakistanjobsbank' style="display: none;">
+          <button type="submit"  style=" border: 0ch;" class="more-btn" inactive> pakistanjobsbank.pk <i class="bx bx-chevron-right" ></i></button>
+        </form>
+
+        <form method="get" style="display: block; padding: 10px;">
+          <button type="submit" onclick="window.open('https://shorturl.at/bjuLR','_blank');" style=" border: 0ch;" class="more-btn" inactive> Google Jobs <i class="bx bx-chevron-right" ></i></button>
+        </form>
+
+      </div>
+      
+    </div>
+            </div>
+            </div>
+            </div>
+      </section>
+
+    <!-- =======  Details Section ======= -->
+    <!-- Defualt Page -->
+    {% if load %}
+    <div class="container" >
+      <img  style=" margin: auto; display: block; align-content: center;" src="{% static 'assets/img/welcome.jpg' %}" alt="">
+      <br/>
+      <br/>
+    </div>
+    {% endif %}
+   
+
+  <!--  jobz.pk JOBS -->
+  {%  if job1 %}
+    <div class="container">
+        <div class="row">
+            <div class="">
+                    <h3 class="text-centre">JOBZ.PK JOBS</h3>
+                    </br>
+                    <dl>
+                    {% for i,j in job1.items %}
+                        <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a>-</dt><br/>
+                        <dd>- Field: {{j.field}} -</dd>
+                        <dd>- City: {{j.city}} -</dd>
+                        <dd>- Date: {{j.date}} -</dd>
+                    <hr>
+                    {% endfor %}
+                    </dl>
+                    <br>
+            </div>
+        </div>
+    </div>
+  {% endif %}
+
+  <!--  jobsalert.pk JOBS -->
+  {%  if job2 %}
+    <div class="container">
+        <div class="row">
+            <div class="">
+                    <h3 class="text-centre">Jobs_Alert JOBS</h3>
+                    </br>
+                    <dl>
+                    {% for i,j in job2.items %}
+                        <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a>-</dt><br/>
+                        <dd>- NewsPaper: {{j.newspaper}} -</dd>
+                        <dd>- Posted: {{j.posted}} -</dd>
+                        <dd>- Last Date: {{j.lastdate}} -</dd>
+                    <hr>
+                    {% endfor %}
+                    </dl>
+                    <br>
+            </div>
+        </div>
+    </div>
+  {% endif %}
+
+  <!--  jobs.com.pk JOBS -->
+
+
+  {%  if job3 %}
+    <div class="container">
+        <div class="row">
+            <div class="">
+                    <h3 class="text-centre">jOBS.COM.PK JOBS</h3>
+                    </br>
+                    <dl>
+                    {% for i,j in job3.items %}
+                        <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a>-</dt><br/>
+                        <dd>- Description: {{j.desc}} -</dd>
+                        <dd>- Posted: {{j.date}} -</dd>
+                    <hr>
+                    {% endfor %}
+                    </dl>
+                    <br>
+            </div>
+        </div>
+    </div>
+  {% endif %}
+
+       {%  if job4 %}
+    <div class="container">
+        <div class="row">
+            <div class="">
+                    <h3 class="text-centre">Pakistan_Jobs_Bank JOBS</h3>
+                    </br>
+                    <dl>
+                    {% for i,j in job4.items %}
+                        <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a>-</dt><br/>
+                        <dd>- Place: {{j.place}} -</dd>
+                        <dd>- Posted: {{j.posted}} -</dd>
+                    <hr>
+                    {% endfor %}
+                    </dl>
+                    <br>
+            </div>
+        </div>
+    </div>
+  {% endif %}
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>QuestGator</h3>
+            <p>
+              QUEST Nawabshah <br>
+              Sindh, Pakistan<br><br>
+              <strong>Phone:</strong> +92 3055521792 <br>
+              <strong>Email:</strong> 18cs21@quest.edu.pk  <br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contacts</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Seach Engine</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">News</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Books</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Scholarships</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Jobs</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Subscribe our website for more updates and information.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>QuestGator</span></strong>. All Rights Reserved
+        </div>
+       
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script type="text/javascript">
+    function saveurls(link){
+        alert(link)
+        document.getElementById("urll").src=link
+    }
+    function comparemore(title1,title2){
+      alert("hello")
+      if (title2===title1){
+        alert("one found");
+      }
+      else{
+        alert("not found");
+      }
+
+    }
+    function samma1(hello){
+      document.getElementById(hello).click();
+    }
+    function samma(id){
+      alert(id)
+    }
+    function samman(hello){
+      alert(hello)
+
+    }
+  </script>
+
+  {% endblock content %}

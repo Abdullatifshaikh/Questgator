@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<script>
+function samman(hello){
+
+  document.getElementsByClassName('ddd').style.display = 'none'
+  alert(hello)
+
+}
+</script>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto " href="{%url 'home'%}">Home</a></li>
+            <li><a class="nav-link scrollto active" href="/">Services</a></li>
+            <li><a class="getstarted scrollto" href="#">Subscribe</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->
+
+
+
+  <main id="main">
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <!-- search engine -->
+    <footer  id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+  
+            <div class="col-lg-12 col-md-6 footer-newsletter">
+              <h4>QuestGator Scholar</h4>
+              <p>Scholar helps to read reasearch generals from all over the world at one place for better understanding and growth.</p>
+              <form action="" method="GET">
+                <input style="border: none; text-align: center; " size="120" type="text" name="query"><input type="submit" value="Search">
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+  {%  if graph %}
+      <img src="data:image/png;base64, {{graph|safe}}"
+
+  {% endif %}
+
+  {%  if results %}
+
+    <div class="container">
+        <div class="row">
+            <div class="">
+                    <h3 class="text-centre">Search Results</h3>
+                    </br>
+                    <dl>
+                    {% for i,j in results.items %}
+                        <dt>- <a href="{{j.title_link}}" target="_blank">{{j.title}}</a>-</dt>
+                        <dd> - Publication Info : {{j.publication_info }} - </dd>
+                        <dd> - Snippet          : {{j.snippet }} - </dd>
+                        <dd> - Cited_by         : {{j.cited_by }} - </dd>
+                        <dd> - Related_articles : {{j.related_articles }} - </dd>
+
+                    <hr>
+                    {% endfor %}
+                    </dl>
+                    <br>
+            </div>
+
+        </div>
+    </div>
+
+  {% endif %}
+
+
+    
+  </main><!-- End #main -->
+
+
+{% endblock content %}

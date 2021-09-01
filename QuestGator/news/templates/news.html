@@ -1,0 +1,343 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<script>
+function samman(hello){
+  
+  document.getElementsByClassName('ddd').style.display = 'none' 
+  alert(hello)
+
+}
+</script>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto " href="{%url 'home'%}">Home</a></li>
+            <li><a class="nav-link scrollto active" href="/">Services</a></li>
+            <li><a class="getstarted scrollto" href="#">Subscribe</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->
+
+  
+
+  <main id="main">
+    
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+  
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>NEWS</h2>
+            <ol>
+              <li><a href="/">Home/Services</a></li>
+              <li>NEWS</li>
+            </ol>
+          </div>
+          <br/><br/>
+          <p>News Aggregation helps to consolidate many websites into one page that can show only the new or updated information from many sites.</p>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+      <section id="why-us" class="why-us">
+        <div class="container" style="margin: auto; padding: auto;">
+  
+          <div class="">
+            <div class="d-flex align-items-stretch" data-aos="fade-right">
+              <div class="content" >
+      <br/>
+      <div class="text-center" >
+        <a href="/news"  style=" border: 0ch;" class="more-btn" > <i class="bx bx-chevron-left" ></i> </a>
+        
+      </form>
+        <form method="get" style="display: inline; padding: 10px;">
+          <input class="" name='web' value='arynews' style="display: none;">
+          <button type="submit"  style=" border: 0ch;" class="more-btn" inactive>ARY News <i class="bx bx-chevron-right" ></i></button>
+        </form>
+
+        <form method="get" style="display: inline; padding: 10px;">
+          <input class="" name='web' value='dawnnews' style="display: none;">
+          <button type="submit"  style=" border: 0ch;" class="more-btn" inactive>DAWN News <i class="bx bx-chevron-right" ></i></button>
+        </form>
+        
+        <form method="get" style="display: inline; padding: 10px; ">
+          <input class="" name='web' value='sammanews' style="display: none;">
+          <button type="submit"  style=" border: 0ch;" class="more-btn" inactive>SAMMA News <i class="bx bx-chevron-right" ></i></button>
+        </form>
+      
+        <form method="get" style="display: inline; padding: 10px;">
+          <input class="" name='web' value='bbcnews' style="display: none;">
+          <button type="submit"  style=" border: 0ch;" class="more-btn" inactive>BBC News <i class="bx bx-chevron-right" ></i></button>
+        </form>
+
+        <form action='' style="display: inline; padding: 10px;">
+          <button   style=" border: 0ch;" class="more-btn" onclick="window.open('https://news.google.com/')" inactive>More News <i class="bx bx-chevron-right" ></i></button>
+        </form>
+      </div>
+      
+    </div>
+            </div>
+            </div>
+            </div>
+      </section>
+
+    <!-- =======  Details Section ======= -->
+    <!-- Defualt Page -->
+    {% if load %}
+    <div class="container" >
+      <img  style=" margin: auto; display: block; align-content: center;" src="{% static 'assets/img/welcome.jpg' %}" alt="">
+      <br/>
+      <br/>
+    </div>
+    {% endif %}
+   
+    <!-- DAWN NEWS -->
+    {% if dawn %}
+    <div class="container">
+      <div class="row">
+          <div class="col-6">
+
+                  <h3 class="text-centre"> SINDH </h3>
+                  </br>
+                  <dl>
+                  {% for i,j in sindh.items %}
+
+                  <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a> -</dt>
+                      <dd>- {{j.desc}} -</dd>
+                  <hr>
+                  {% endfor %}
+                  </dl>
+                  <br>
+          </div>
+          <div class="col-6">
+
+                  <h3 class="text-centre">PUNJAB</h3>
+                  </br>
+                  <dl>
+                  {% for i,j in punjab.items %}
+
+                  <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a> -</dt>
+                      <dd>- {{j.desc}} -</dd>
+                  <hr>
+
+                  {% endfor %}
+                  </dl>
+                  <br>
+          </div>
+
+      </div>
+      <div class="row">
+          <div class="col-6">
+
+                  <h3 class="text-centre">KPK</h3>
+                  </br>
+                  <dl>
+                  {% for i,j in kpk.items %}
+
+                  <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a> -</dt>
+                      <dd>- {{j.desc}} -</dd>
+
+                  <hr>
+                  {% endfor %}
+                  </dl>
+                  <br>
+          </div>
+          <div class="col-6">
+
+                  <h3 class="text-centre">BALOCHISTAN</h3>
+                  </br>
+                  <dl>
+                  {% for i,j in bal.items %}
+
+                  <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a> -</dt>
+                      <dd>- {{j.desc}} -</dd>
+
+                  <hr>
+                  {% endfor %}
+                  </dl>
+                  <br>
+          </div>
+
+      </div>
+  </div>
+  {% endif %}
+
+  <!-- SAMMA NEWS -->
+  {%  if samma %}
+
+    <div class="container">
+        <div class="row">
+            <div class="">
+                    <h3 class="text-centre">SAMMA NEWS</h3>
+                    </br>
+                    <dl>
+                    {% for i,j in samma.items %}
+                        <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a>-</dt>
+                        <dd>- <a href="{{j.url}}" target="_blank">More</a>-</dd>
+                    <hr>
+                    {% endfor %}
+                    </dl>
+                    <br>
+            </div>
+
+        </div>
+    </div>
+    {% endif %}
+
+  <!--  ARY NEWS -->
+  {%  if ary %}
+
+    <div class="container">
+        <div class="row">
+            <div class="">
+                    <h3 class="text-centre">ARY NEWS</h3>
+                    </br>
+                    <dl>
+                    {% for i,j in ary.items %}
+                        <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a>-</dt>
+                        <dd>- Click On Link For More Information -</dd>
+                    <hr>
+                    {% endfor %}
+                    </dl>
+                    <br>
+            </div>
+
+        </div>
+    </div>
+
+  {% endif %}
+
+  <!--  BBC PAKISTAN NEWS -->
+  {%  if bbc %}
+    <div class="container">
+        <div class="row">
+            <div class="">
+                    <h3 class="text-centre">BBC PAKISTAN NEWS</h3>
+                    </br>
+                    <dl>
+                    {% for i,j in bbc.items %}
+                        <dt>- <a href="{{j.url}}" target="_blank">{{j.title}}</a>-</dt>
+                        <dd>- {{j.desc}} -</dd>
+                    <hr>
+                    {% endfor %}
+                    </dl>
+                    <br>
+            </div>
+        </div>
+    </div>
+  {% endif %}
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h3>QuestGator</h3>
+            <p>
+              QUEST Nawabshah <br>
+              Sindh, Pakistan<br><br>
+              <strong>Phone:</strong> +92 3055521792 <br>
+              <strong>Email:</strong> 18cs21@quest.edu.pk  <br>
+            </p>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#services">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contacts</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Seach Engine</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">News</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Books</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Scholarships</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Jobs</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Join Our Newsletter</h4>
+            <p>Subscribe our website for more updates and information.</p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Subscribe">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container d-md-flex py-4">
+
+      <div class="me-md-auto text-center text-md-start">
+        <div class="copyright">
+          &copy; Copyright <strong><span>QuestGator</span></strong>. All Rights Reserved
+        </div>
+       
+      </div>
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script type="text/javascript">
+    function saveurls(link){
+        alert(link)
+        document.getElementById("urll").src=link
+    }
+    function comparemore(title1,title2){
+      alert("hello")
+      if (title2===title1){
+        alert("one found");
+      }
+      else{
+        alert("not found");
+      }
+
+    }
+    function samma1(hello){
+      document.getElementById(hello).click();
+    }
+    function samma(id){
+      alert(id)
+    }
+    function samman(hello){
+      alert(hello)
+
+    }
+  </script>
+
+  {% endblock content %}
