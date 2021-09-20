@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<style>
+textarea {
+  width: 90%;
+  height: 100px;
+  padding: 12px 20px;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  resize: none;
+}
+</style>
+<script>
+function samman(hello){
+
+  document.getElementsByClassName('ddd').style.display = 'none'
+  alert(hello)
+
+}
+</script>
+
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a class="nav-link scrollto " href="{%url 'home'%}">Home</a></li>
+            <li><a class="nav-link scrollto active" href="/">Services</a></li>
+            <li><a class="getstarted scrollto" href="#">Subscribe</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+      </div><!-- End Header Container -->
+    </div>
+  </header><!-- End Header -->
+
+
+
+  <main id="main">
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+      <!-- search engine -->
+      <footer  id="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+    
+              <div class="col-lg-12 col-md-6 footer-newsletter">
+                <h4>Test Classifer</h4>
+                <p>Specialized form of search engine that aggregates results from the data of other search engines.</p>
+                <form action="" method="GET">
+                  <textarea rows="4" cols="50" style=" text-align: center; "  name="query"></textarea><input type="submit" value="Classify">
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </footer>
+  {%  if text %}
+  <br/>
+  <div class="container">
+    <p>-<b> Your Text : </b> {{ text }} -</p>
+  </div>
+  {%  if text %}
+  <div class="container">
+    <img src="data:image/png;base64, {{graph|safe}}"/>
+  </div>
+  {% endif %}
+  
+  {% endif %}
+    
+  </main><!-- End #main -->
+
+
+{% endblock content %}

@@ -8,7 +8,7 @@
             <li><a class="nav-link scrollto" href="#services">Services</a></li>
             <li><a class="nav-link scrollto" href="#team">Team</a></li>
             <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-            <li><a class="getstarted scrollto" href="#">Subscribe</a></li>
+            <li><a class="getstarted scrollto" href="#subs">Subscribe</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -239,7 +239,7 @@
 
               </div>
               <div class="col-md-6">
-                <a href="https://www.arkadium.com/free-online-games/">
+                <a href="https://www.arkadium.com/free-online-games/" target="_blank">
                     <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
                       <div class="icon"><i class="bx bx-game"></i></div>
                       <h4><a href="">Games</a></h4>
@@ -264,8 +264,34 @@
 
               </div>
               <div class="col-md-6">
+                <a href="{% url 'vsearch' %}">
+
+                  <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon"><i class="bx bx-news"></i></div>
+                    <h4><a href="">Video Search</a></h4>
+                    <p>Getting Reserch papers from all over the world at one place to better understanding.</p>
+                  </div>
+
+              </a>
 
 
+              </div>
+            </div>
+            <br/><br/>
+            <div class="row">
+              <div class="col-md-6">
+                <a href="{% url 'classify' %}">
+                    <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+                      <div class="icon"><i class="bx bx-news"></i></div>
+                      <h4><a href="">Text Classification</a></h4>
+                      <p>Can Classify the topic of any paragraph.</p>
+                    </div>
+
+                </a>
+
+              </div>
+              <div class="col-md-6">
+                
               </div>
             </div>
 
@@ -490,10 +516,10 @@
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
+            <h4 id='subs'>Join Our Newsletter</h4>
             <p>Subscribe our website for more updates and information.</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" placeholder="youremail@mail.com" name="email"><input type="submit" value="Subscribe">
             </form>
           </div>
 

@@ -1,0 +1,117 @@
+import requests
+from apiclient.discovery import build
+import json
+'''
+with open('data_file2.json') as f:
+  data_file = json.load(f)
+
+t_items=len(data_file['items'])
+print(t_items)
+titles=list()
+dess=list()
+thumbs=list()
+ids=list()
+
+for i in range(t_items):
+    titles.append(data_file["items"][i]['snippet']['title'])
+    dess.append(data_file['items'][i]['snippet']['description'])
+    thumbs.append(data_file['items'][i]['snippet']['thumbnails']['default']['url'])
+    ids.append(data_file['items'][i]['id']['videoId'])
+
+
+data=dict()
+data['titles']=titles
+data['decription']=dess
+data['thumbnails']=thumbs
+data['ids']=ids
+'''
+api_key='AIzaSyBmwpT05GX3fOYjZiceHpfxRzqQSQtgQxU'
+youtube=build('youtube','v3',developerKey=api_key)
+req=youtube.search().list(q='google apis',part='snippet',type='video',maxResults=4)
+res=req.execute()
+'''
+with open("data_file.json", "w") as write_file:
+    json.dump(res, write_file)
+
+json_string = json.dumps(data)
+'''
+data =  dict()
+data = res
+print(data)
+
+
+
+
+<!--
+          new card start here
+        -->
+          <div class="row">
+            {% if results %}   
+              {% for i,j in results.items %} 
+              <div class="card card--lightBg" style="width: 18rem; margin:20px; padding:15px">
+                  <div class="card-block">
+                      <img class="card-img-top" src="{{j.thumb}}" alt="Card image cap"/>
+                      <br/> <br/> 
+                      <p class="card-text card-text__events">{{j.title}}</p>
+
+                      <div class="card-footer card-footer__events text-muted">
+                        <button type="button" class="btn btn-primary video-btn" data-bs-toggle="modal" data-bs-target="#videoModal" src="{{j.url}}" id='myBtn'>Play</button>
+
+                        <!-- Implementing model and video play -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="videoModal" role="dialog">
+                          <div class="modal-dialog">
+                          
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Previewr</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                  <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          
+                        </div>
+                      
+                      </div>
+                      </div>
+                  </div>
+              </div>
+              {% endfor %} 
+            {% endif %}  
+        
+</div>
+
+
+
+
+
+<!-- Modal -->
+            <div class="modal fade"  id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content" style="size:inherit;">
+      
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe width='560px' height='340px' class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
+                    </div>
+                    
+
+                </div>
+              </div>
+            </div> 
+
+
+
+
+
+
+        <!--
+          ends here
+        -->

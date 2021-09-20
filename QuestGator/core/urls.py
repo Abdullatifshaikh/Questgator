@@ -25,6 +25,8 @@ urlpatterns = [
     path('search/',include('search.urls')),
     path('scholarships',include('scholarships.urls')),
     path('scholar/',include('scholar.urls')),
-
+    path('vsearch/',include('vsearch.urls')),
+    path('textclasify/',include('textclasify.urls')),
+    
     #path('books/',include('library.urls')),
 ]

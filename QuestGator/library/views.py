@@ -41,7 +41,7 @@ def default(number,query):
         temp = dict()
         temp['title'] = i.find('h2').text
         temp['desc'] = i.find('div', {'class': 'file-info'}).text
-        temp['url'] = i.a['href']
+        temp['url'] = 'https://www.pdfdrive.com/' + i.a['href']
         # temp['desc']=i.text.replace('\n'," ").replace("\xa0",' ')
         data[counter] = temp
         counter = counter + 1

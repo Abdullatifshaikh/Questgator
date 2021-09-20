@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'scholarships',
     'search',
     'scholar',
+    'vsearch',
+    'textclasify',
 ]
 
 MIDDLEWARE = [

@@ -88,7 +88,7 @@ def get_graph():
 
 def get_plot(x, y):
     plt.switch_backend('AGG')
-    plt.figure(figsize=(15, 10))
+    plt.figure(figsize=(10, 5))
     plt.title("Growth Over Time")
     plt.plot(x, y)
     plt.xlabel('Time')
